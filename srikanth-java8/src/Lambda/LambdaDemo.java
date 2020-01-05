@@ -17,7 +17,37 @@ public class LambdaDemo {
 				}
 			}
 		});
-		prime.find(100);
+		//prime.find(100);
+		
+		FuncInterface2 isPrime = (n -> {
+			if(n<=1) {
+				return false;
+			}
+			if(n==2) {
+				return true;
+			}
+			for(int i=2;i<=n/2;i++) {
+				if(n%i==0) {
+					return false;
+				}
+			}
+			return true;
+		});
+		
+		FuncInterface findPrime = (n -> {
+			int count=0;
+			for(int i=0;i<=n;i++) {
+				if(isPrime.find(i)) {
+					count++;
+					System.out.print(i+" ");
+				}
+			}
+			System.out.println();
+			System.out.println("count is "+ count);
+			float per=(count*100)/n;
+			System.out.println("persent of prime numbers "+ per);
+		});
+		findPrime.find(50000);
 	}
 
 }
