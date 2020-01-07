@@ -1,8 +1,14 @@
 package Lambda;
 
 public class LambdaDemo {
+	
+	private void oparate(int a, FuncInterface funcInterface) {
+		funcInterface.find(a);
+	}
 
 	public static void main(String[] args) {
+		LambdaDemo lambdaDemo = new LambdaDemo();
+		
 		FuncInterface prime = (n -> {
 			for (int x = 2; x <= n; x++) {
 				boolean isprime = true;
@@ -47,7 +53,8 @@ public class LambdaDemo {
 			float per=(count*100)/n;
 			System.out.println("persent of prime numbers "+ per);
 		});
-		findPrime.find(50000);
+		//findPrime.find(50000);
+		lambdaDemo.oparate(10, findPrime);
 	}
 
 }
